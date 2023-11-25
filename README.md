@@ -3,6 +3,7 @@
 ## Overview
 
 CosmicKeyboard is an innovative electronic keyboard project designed to bring a unique musical experience. This project combines traditional electronic keyboard functionalities with advanced features like auto-play, learning mode, and an interactive song selection interface. It's perfect for both beginners and experienced musicians looking to explore music in a new, interactive way.
+![CosmicKeyboard Image](keyboard.png "CosmicKeyboard")
 
 ## Features
 
