@@ -33,7 +33,7 @@ CosmicKeyboard is an innovative electronic keyboard project designed to bring a 
 
 1. Clone the repository:
    ```
-   git clone [repository-url]
+   git clone https://github.com/7Sageer/CosmicKeyboard
    ```
 2. Compile the Verilog files using your preferred FPGA development environment.
 3. Load the compiled design onto your FPGA board.
