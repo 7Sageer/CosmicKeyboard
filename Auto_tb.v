@@ -31,14 +31,10 @@ begin
 end
 
 initial begin
-    selected_song = 4'b0000;
+    selected_song = 4'b0001;
     reset = 1;
     octave_keys = 2'b00;
-    #10000000000;
-    reset = 0;
-    #30000000000;
-    reset = 1;
-    #10000000000;
+    #1000000000;
     reset = 0;
     #30000000000;
     $finish;
