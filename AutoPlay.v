@@ -1,3 +1,23 @@
+/**
+ * @module AutoPlay
+ * @brief This module implements an automatic music player.
+ *
+ * The AutoPlay module takes in a clock signal, a reset signal, octave keys, and a selected song.
+ * It generates a speaker output and a note output based on the selected song and the state of the octave keys.
+ * The module uses an OctaveControl module to handle the octave control logic, a Buzzer module to generate the note output,
+ * and a SongROM module to retrieve the notes and durations of the selected song.
+ *
+ * The AutoPlay module keeps track of the current index and counter for the song playback.
+ * It also handles the generation of gaps between notes.
+ *
+ * @param clk The clock signal.
+ * @param reset The reset signal.
+ * @param octave_keys The octave keys input.
+ * @param selected_song The selected song input.
+ * @param speaker The speaker output.
+ * @param note_out The note output.
+ */
+
 module AutoPlay(
     input wire clk,
     input wire reset,
@@ -11,13 +31,13 @@ localparam GAP_DURATION = 15'd500;
 localparam SIZE = 32;
 
 
-reg [4:0] index;
-reg [31:0] counter;
+reg [4:0] index; // current index of the song notes
+reg [31:0] counter; // current counter for the note duration
 
-reg in_gap;
-reg [15:0] gap_counter;
+reg in_gap; // whether the current state is in a gap
+reg [15:0] gap_counter; // current counter for the gap duration
 
-wire [15:0] song_durations;
+wire [15:0] song_durations; // the durations of the notes in the selected song_note
 wire octave_up, octave_down;
 
 wire piano_speaker;
@@ -43,6 +63,14 @@ SongROM song_rom(
     .selected_song(selected_song)
 );
 
+/**
+ * @brief This always block handles the generation of the speaker output and the note output.
+ * @param song_durations The duration of each note in the song.
+ * @param piano_speaker The value to be assigned to the `speaker` output when playing a note.
+ * @param speaker The output signal that controls the speaker.
+ * @param in_gap Indicates whether the module is currently in a gap between notes.
+ * @param gap_counter The counter used to keep track of the duration of the gap between notes.
+ */
 always @(posedge clk) begin
     if (reset) begin
         index <= 0;
