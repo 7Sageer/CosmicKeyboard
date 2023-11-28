@@ -2,7 +2,7 @@
 
 module KeyboardInput(
     input wire [6:0] key_in, // 8-bit input representing the keys
-    output reg [3:0] note_out // 4-bit output for the note
+    output reg [3:0] note_out, // 4-bit output for the note
     output reg [6:0] led_out // 7-bit output for the LEDs
 );
 
