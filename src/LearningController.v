@@ -1,5 +1,6 @@
-module AutoPlayController(
+module LearningConroller(
     input wire clk,
+    input wire [6:0] key_in,
     input wire reset,
     input wire next_song,
     input wire prev_song,
@@ -21,9 +22,10 @@ always @(posedge clk or posedge reset) begin
     end
 end
 
-AutoPlay auto_play(
+LearningPlay learning_play(
     .clk(clk),
     .reset(reset),
+    .key_in(key_in),
     .selected_song(song_number),
     .speaker(speaker),
     .note_out()
@@ -33,5 +35,5 @@ SevenSegmentDecoder decoder(
     .digit(song_number),
     .display(display_output)
 );
-
+//todo show the scores
 endmodule
