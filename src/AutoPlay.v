@@ -13,7 +13,7 @@
  * @param clk The clock signal.
  * @param reset The reset signal.
  * @param octave_keys The octave keys input.
- * @param selected_song The selected song input.
+ * @param selected_song Thbe selected song input.
  * @param speaker The speaker output.
  * @param note_out The note output.
  */
@@ -62,15 +62,6 @@ SongROM song_rom(
     .note_duration(song_durations),
     .selected_song(selected_song)
 );
-
-/**
- * @brief This always block handles the generation of the speaker output and the note output.
- * @param song_durations The duration of each note in the song.
- * @param piano_speaker The value to be assigned to the `speaker` output when playing a note.
- * @param speaker The output signal that controls the speaker.
- * @param in_gap Indicates whether the module is currently in a gap between notes.
- * @param gap_counter The counter used to keep track of the duration of the gap between notes.
- */
 always @(posedge clk) begin
     if (reset) begin
         index <= 0;

@@ -7,6 +7,7 @@ module Main(
     input wire next_song,
     input wire prev_song,
     input wire reset,
+    output wire [3:0] note_out,
     output wire speaker,
     output wire [6:0] song_num
 );
@@ -17,14 +18,18 @@ localparam LEARNING_MODE = 3'd2;
 
 reg [2:0] current_mode;
 
-wire [3:0] note;
+wire [3:0] note_free;
+wire [3:0] note_auto;
+wire [3:0] note_learn;
+
 wire piano_speaker;
 wire auto_play_speaker;
 ElectronicPiano piano(
     .clk(clk),
     .key_in(key_in),
     .octave_keys(octave_keys),
-    .speaker(piano_speaker)
+    .speaker(piano_speaker),
+    .note(note_free)
 );
 AutoPlayController auto_play_controller(
     .clk(clk),
@@ -33,7 +38,8 @@ AutoPlayController auto_play_controller(
     .prev_song(prev_song),
     //.song_number(),
     .display_output(song_num),
-    .speaker(auto_play_speaker)
+    .speaker(auto_play_speaker),
+    .note_out(note_auto)
 );
 //TODO: Add other modules here
 
@@ -49,5 +55,8 @@ end
 //TODO: Add other modes here
 assign speaker = (current_mode == FREE_MODE) ? piano_speaker : 
                  (current_mode == AUTO_PLAY_MODE) ? auto_play_speaker : 0;
+
+assign note_out = (current_mode == FREE_MODE) ? note_free : 
+                  (current_mode == AUTO_PLAY_MODE) ? note_auto : 0;
 endmodule
 

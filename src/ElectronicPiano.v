@@ -16,10 +16,10 @@ module ElectronicPiano(
     input wire clk,
     input wire [6:0] key_in, // Keys for notes
     input wire [1:0] octave_keys, // Keys for octave control
+    output wire [3:0] note,
     output wire speaker
 );
 
-wire [3:0] note;
 wire octave_up, octave_down;
 
 KeyboardInput keyboard_input(
