@@ -38,14 +38,12 @@ module Buzzer (
     input wire [3:0] note, // Note number
     input wire octave_up, // Octave up control
     input wire octave_down, // Octave down control
-    input wire en, // work?
     output wire speaker // Buzzer output signal
 );
 
 // Base frequencies for notes do, re, mi, fa, so, la, si
 reg [31:0] base_frequencies[7:0];
 initial begin
-    base_frequencies[0] = 0;
     base_frequencies[1] = 381680; // do
     base_frequencies[2] = 340136; // re
     base_frequencies[3] = 303030; // mi
@@ -76,9 +74,10 @@ always @(posedge clk) begin
         counter <= counter + 1;
     end else begin
         pwm = ~pwm;
+        counter <= 0;
     end
 end
 
-assign speaker = en?pwm:base_frequencies[0]; // Output a PWM signal to the buzzer
+assign speaker = pwm; // Output a PWM signal to the buzzer
 
 endmodule
