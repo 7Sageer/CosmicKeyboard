@@ -29,7 +29,7 @@ module AutoPlay(
 
 localparam GAP_DURATION = 15'd1000_000_000;
 localparam BATCH_SIZE = 20;
-localparam GAP_BATCH_SIZE = 200;
+localparam GAP_BATCH_SIZE = 400;
 localparam SIZE = 32;
 
 

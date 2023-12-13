@@ -114,43 +114,43 @@ always @(address) begin
                 default:note = 4'd0;
             endcase
             case(address)
-                0:note_duration = 10_000_00;
-                1:note_duration = 10_000_00;
-                2:note_duration = 20_000_00;
-                3:note_duration = 20_000_00;
-                4:note_duration = 40_000_00;
-                5:note_duration = 90_000_00;
+                0:note_duration = 5_000_00;
+                1:note_duration = 5_000_00;
+                2:note_duration = 10_000_00;
+                3:note_duration = 10_000_00;
+                4:note_duration = 20_000_00;
+                5:note_duration = 45_000_00;
 
-                6:note_duration = 10_000_00;
-                7:note_duration = 10_000_00;
-                8:note_duration = 20_000_00;
-                9:note_duration = 80_000_00;
+                6:note_duration = 5_000_00;
+                7:note_duration = 5_000_00;
+                8:note_duration = 10_000_00;
+                9:note_duration = 40_000_00;
 
-                10:note_duration = 10_000_00;
-                11:note_duration = 10_000_00;
-                12:note_duration = 20_000_00;
-                13:note_duration = 20_000_00;
-                14:note_duration = 40_000_00;
-                15:note_duration = 90_000_00;
+                10:note_duration = 5_000_00;
+                11:note_duration = 5_000_00;
+                12:note_duration = 10_000_00;
+                13:note_duration = 10_000_00;
+                14:note_duration = 20_000_00;
+                15:note_duration = 45_000_00;
 
-                16:note_duration = 10_000_00;
-                17:note_duration = 10_000_00;
-                18:note_duration = 20_000_00;
-                19:note_duration = 80_000_00;
+                16:note_duration = 5_000_00;
+                17:note_duration = 5_000_00;
+                18:note_duration = 10_000_00;
+                19:note_duration = 40_000_00;
 
-                20:note_duration = 10_000_00;
-                21:note_duration = 10_000_00;
-                22:note_duration = 20_000_00;
-                23:note_duration = 10_000_00;
-                24:note_duration = 10_000_00;
-                25:note_duration = 20_000_00;
-                26:note_duration = 20_000_00;
-                27:note_duration = 40_000_00;
-                28:note_duration = 90_000_00;
+                20:note_duration = 5_000_00;
+                21:note_duration = 5_000_00;
+                22:note_duration = 10_000_00;
+                23:note_duration = 5_000_00;
+                24:note_duration = 5_000_00;
+                25:note_duration = 10_000_00;
+                26:note_duration = 10_000_00;
+                27:note_duration = 20_000_00;
+                28:note_duration = 45_000_00;
 
-                29:note_duration = 10_000_00;
-                30:note_duration = 10_000_00;
-                31:note_duration = 20_000_00;
+                29:note_duration = 5_000_00;
+                30:note_duration = 5_000_00;
+                31:note_duration = 10_000_00;
                 default:note_duration = 0;
             endcase
         end

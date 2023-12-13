@@ -11,7 +11,8 @@ module Main(
     input wire reset,
 //    output wire [3:0] note_out,
     output wire speaker,
-//    output wire [6:0] song_num,
+    output wire tub_sel_song_num,
+    output wire [7:0] song_num,
     output wire loud,
     output wire [6:0] led
 );
@@ -21,7 +22,7 @@ localparam AUTO_PLAY_MODE = 3'd1;
 localparam LEARNING_MODE = 3'd2;
 
 reg [2:0] current_mode;
-wire [6:0] song_num;
+
 wire [3:0] note_out;
 wire [3:0] note_free;
 wire [3:0] note_auto;
@@ -44,7 +45,7 @@ AutoPlayController auto_play_controller(
     .reset(reset),
     .next_song(next_song),
     .prev_song(prev_song),
-    //.song_number(),
+    .tub_sel(tub_sel_song_num),
     .display_output(song_num),
     .speaker(auto_play_speaker),
     .note_out(note_auto)

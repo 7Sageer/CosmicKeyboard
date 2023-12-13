@@ -4,9 +4,10 @@ module AutoPlayController(
     input wire next_song,
     input wire prev_song,
     output reg [3:0] song_number,
-    output wire [6:0] display_output,
+    output wire [7:0] display_output,
     output wire speaker,
-    output wire [3:0] note_out
+    output wire [3:0] note_out,
+    output wire tub_sel
 );
 
 localparam TOTAL_SONGS = 2;
@@ -31,7 +32,8 @@ AutoPlay auto_play(
 
 SevenSegmentDecoder decoder(
     .digit(song_number),
-    .display(display_output)
+    .display(display_output),
+    .tub_sel(tub_sel)
 );
 
 endmodule
