@@ -9,10 +9,9 @@ module AutoPlayController(
     output wire [3:0] note_out
 );
 
-localparam TOTAL_SONGS = 3;
+localparam TOTAL_SONGS = 2;
 always @(posedge clk or posedge reset) begin
     if (reset) begin
-        song_number <= 0;
     end else begin
         if (next_song && song_number < TOTAL_SONGS - 1) begin
             song_number <= song_number + 1;

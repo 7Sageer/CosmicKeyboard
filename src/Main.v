@@ -49,6 +49,10 @@ AutoPlayController auto_play_controller(
     .speaker(auto_play_speaker),
     .note_out(note_auto)
 );
+// AutoPlay auto_play(
+//     .clk(clk),
+//     .res
+// )
 //TODO: Add other modules here
 
 always @(posedge clk) begin

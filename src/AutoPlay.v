@@ -27,17 +27,20 @@ module AutoPlay(
     output wire [3:0] note_out
 );
 
-localparam GAP_DURATION = 15'd500;
+localparam GAP_DURATION = 15'd1000_000_000;
+localparam BATCH_SIZE = 20;
+localparam GAP_BATCH_SIZE = 200;
 localparam SIZE = 32;
 
 
 reg [4:0] index; // current index of the song notes
 reg [31:0] counter; // current counter for the note duration
+reg [31:0] batch_counter; // current counter for the batch duration
 
 reg in_gap; // whether the current state is in a gap
 reg [15:0] gap_counter; // current counter for the gap duration
 
-wire [15:0] song_durations; // the durations of the notes in the selected song_note
+wire [63:0] song_durations; // the durations of the notes in the selected song_note
 wire octave_up, octave_down;
 
 wire piano_speaker;
@@ -70,25 +73,31 @@ always @(posedge clk) begin
         in_gap <= 0;
         gap_counter <= 0;
     end else if (in_gap) begin
-        if (gap_counter < GAP_DURATION) begin
+        if (gap_counter < GAP_BATCH_SIZE) begin
             gap_counter <= gap_counter + 1;
             speaker <= 0;
+            in_gap <= 1;
         end else begin
-            in_gap <= 0;
             gap_counter <= 0;
-            index <= index + 1;
-            if (index == SIZE) begin
-                index <= 0;
+            batch_counter <= batch_counter + 1;
+            if(batch_counter > GAP_DURATION) begin
+                batch_counter <= 0;
+                in_gap <= 0;
+                index <= index + 1;
             end
         end
     end else begin
-        if (counter < song_durations) begin
+        if (counter < BATCH_SIZE) begin
             counter <= counter + 1;
             speaker <= piano_speaker;
+            in_gap <= 0;
         end else begin
             counter <= 0;
-            in_gap <= 1;
-            gap_counter <= 0;
+            batch_counter <= batch_counter + 1;
+            if(batch_counter > song_durations) begin
+                batch_counter <= 0;
+                in_gap <= 1;
+            end
         end
     end
 end
