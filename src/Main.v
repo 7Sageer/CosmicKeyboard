@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 module Main(
     input wire clk,
-    input wire [2:0] mode_select, 
-    input wire [6:0] key_in, 
+    input wire [2:0] mode_select,
+    input wire [6:0] key_in,
     input wire [1:0] octave_keys,
     input wire adjustment_switch, // Switch to enter adjustment mode
-    input wire confirm_button, 
+    input wire confirm_button,
     input wire next_song,
     input wire prev_song,
     input wire reset,
@@ -30,6 +30,7 @@ wire [3:0] note_learn;
 
 wire piano_speaker;
 wire auto_play_speaker;
+wire learn_speaker;
 ElectronicPiano piano(
     .clk(clk),
     .reset(reset),
@@ -48,6 +49,19 @@ AutoPlayController auto_play_controller(
     .tub_sel(tub_sel_song_num),
     .display_output(song_num),
     .speaker(auto_play_speaker),
+    .note_out(note_auto)
+);
+wire [6:0] learn_show_led;
+LearningConroller learning_controller(
+    .clk(clk),
+    .key_in(key_in),
+    .reset(reset),
+    .next_song(next_song),
+    .prev_song(prev_song),
+    .tub_sel(tub_sel_song_num),
+    .display_output(song_num),
+    .speaker(learn_speaker),
+    .learn_show_led(learn_show_led),
     .note_out(note_auto)
 );
 // AutoPlay auto_play(
@@ -78,15 +92,14 @@ end
 //end
 
 //TODO: Add other modes here
-assign speaker = (current_mode == FREE_MODE) ? piano_speaker : 
-                 (current_mode == AUTO_PLAY_MODE) ? auto_play_speaker : 0;
+assign speaker = (current_mode == FREE_MODE) ? piano_speaker :
+                 (current_mode == AUTO_PLAY_MODE) ? auto_play_speaker : learn_speaker;
 
 //assign speaker = piano_speaker;
 
-//assign note_out = (current_mode == FREE_MODE) ? note_free : 
+//assign note_out = (current_mode == FREE_MODE) ? note_free :
 //                  (current_mode == AUTO_PLAY_MODE) ? note_auto : 0;
-                  
-assign led = key_in;
+
+assign led = (current_mode == LEARNING_MODE)? learn_show_led:key_in;
 assign loud = 1;
 endmodule
-
