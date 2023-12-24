@@ -14,7 +14,10 @@ module Main(
     output wire tub_sel_song_num,
     output wire [7:0] song_num,
     output wire loud,
-    output wire [6:0] led
+    output wire [6:0] led,
+    output wire tub_sel_score1,
+    output wire tub_sel_score2,
+    output wire [7:0] score2
 );
 
 localparam FREE_MODE = 3'd0;
@@ -23,10 +26,11 @@ localparam LEARNING_MODE = 3'd2;
 
 reg [2:0] current_mode;
 
-wire [3:0] note_out;
 wire [3:0] note_free;
 wire [3:0] note_auto;
 wire [3:0] note_learn;
+
+wire [6:0] led_auto;
 
 wire piano_speaker;
 wire auto_play_speaker;
@@ -49,7 +53,8 @@ AutoPlayController auto_play_controller(
     .tub_sel(tub_sel_song_num),
     .display_output(song_num),
     .speaker(auto_play_speaker),
-    .note_out(note_auto)
+    .note_out(note_auto),
+    .led(led_auto)
 );
 wire [6:0] learn_show_led;
 LearningConroller learning_controller(
@@ -59,10 +64,12 @@ LearningConroller learning_controller(
     .next_song(next_song),
     .prev_song(prev_song),
     .tub_sel(tub_sel_song_num),
-    .display_output(song_num),
+   // .display_output(song_num),
     .speaker(learn_speaker),
     .learn_show_led(learn_show_led),
-    .note_out(note_auto)
+    .tub_1(tub_sel_score1),
+    .tub_2(tub_sel_score2),
+    .score2(score2)
 );
 // AutoPlay auto_play(
 //     .clk(clk),
@@ -93,13 +100,13 @@ end
 
 //TODO: Add other modes here
 assign speaker = (current_mode == FREE_MODE) ? piano_speaker :
-                 (current_mode == AUTO_PLAY_MODE) ? auto_play_speaker : learn_speaker;
-
+                 ((current_mode == AUTO_PLAY_MODE) ? auto_play_speaker : learn_speaker);
 //assign speaker = piano_speaker;
 
 //assign note_out = (current_mode == FREE_MODE) ? note_free :
 //                  (current_mode == AUTO_PLAY_MODE) ? note_auto : 0;
 
-assign led = (current_mode == LEARNING_MODE)? learn_show_led:key_in;
+assign led = (current_mode == FREE_MODE) ? key_in :
+             (current_mode == AUTO_PLAY_MODE) ? led_auto : learn_show_led;
 assign loud = 1;
 endmodule
