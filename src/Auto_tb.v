@@ -36,7 +36,7 @@ initial begin
     octave_keys = 2'b00;
     #1000000000;
     reset = 0;
-    #30000000000;
+    #300000000;
     $finish;
 end
 
