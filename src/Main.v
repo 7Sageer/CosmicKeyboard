@@ -8,6 +8,7 @@ module Main(
     input wire confirm_button,
     input wire next_song,
     input wire prev_song,
+    input wire showScore,
     input wire reset,
 //    output wire [3:0] note_out,
     output wire speaker,
@@ -59,6 +60,7 @@ AutoPlayController auto_play_controller(
 wire [6:0] learn_show_led;
 LearningConroller learning_controller(
     .clk(clk),
+    .showScore(showScore),
     .key_in(key_in),
     .reset(reset),
     .next_song(next_song),
