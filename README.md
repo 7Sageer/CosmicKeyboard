@@ -29,11 +29,67 @@
 - **October to November**: Development of basic and standard functionalities of Free Mode, initial board testing.
 - **December 10th to 20th**: Challenge for the bonus features.
 
-## System Functionality and User Guide
+## System Functionality
 
-The following sections provide detailed information about the Electronic Piano project's modules, functionalities, and integration into electronic piano systems.
+Based on the provided information about the Electronic Piano project and the associated modules, here is a comprehensive list of functionalities that this project can implement:
+
+1. **Free Mode Functionality (夏辰曦 - Xia Chenxi)**
+   - Basic piano playing capabilities where each key corresponds to a specific note.
+   - Standard features including dynamic volume control and real-time note play.
+   - Adjustment Mode for customizing key-to-note mappings, enabling users to personalize their playing experience.
+   - Initial equipment binding and debugging to ensure hardware and software integration.
+   - Organizing and participating in team meetings for project planning and division of work.
+
+2. **Auto-Play Mode (戚涵睿 - Qi Hanrui)**
+   - Automatic playback of pre-set or user-programmed songs.
+   - Composition tools to allow users to create or modify songs for auto-play.
+   - Integration with the main control module to manage song selection and playback controls.
+   - Involvement in the production of project documentation, detailing the functionality and usage of the Auto-Play mode.
+
+3. **Learning Mode (蔡骐骏 - Cai Qijun)**
+   - Guided playing feature to assist users in learning new songs.
+   - LED indicators and audio cues to guide users through song notes, improving learning efficiency.
+   - Post-production optimization to enhance the learning experience, such as adjusting the timing and responsiveness of guidance systems.
+   - Case binding and final adjustments to ensure the robustness and user-friendliness of the Learning Mode.
+
+4. **General System Features**
+   - Octave control allowing users to shift the pitch of notes up or down.
+   - LED indicators for various functions such as mode selection, key activation, and octave shifts.
+   - Customizable settings for key mappings and other user preferences.
+   - Dynamic speaker output that changes based on the selected mode and user interaction.
+   - A user-friendly interface for easy navigation between different playing modes.
+
+5. **Bonus Features (December Challenge)**
+   - Potential expansion of existing features or addition of new, innovative capabilities.
+   - Advanced customization options for experienced users.
+   - Enhanced audio effects and integration of additional musical instruments or sounds.
+
+This project combines various elements of electronic music synthesis, user interface design, and educational tools, making it a versatile electronic piano system suitable for a wide range of users, from beginners to experienced musicians.
 
 ---
+
+## Bonus Features
+
+Certainly! Here are the detailed explanations for the bonus features of the Electronic Piano project:
+
+1. **Customizable Key Mapping Feature**
+   - **Functionality**: This feature allows users to adjust the mapping of musical notes to keys based on their usage habits. 
+   - **Implementation in Adjustment Mode**: When the device enters adjustment mode, it sequentially plays musical notes (like do, re, mi). After each note is played, the user selects a key corresponding to the played note and presses the confirm button. The device then plays the next note, waiting for the user's next selection and confirmation.
+   - **User Experience**: Once all notes have been assigned to keys and confirmed, the mapping is set. This means that during practice, the keys pressed by the user will produce the notes as set in adjustment mode, personalizing the learning and playing experience to the user’s preferences.
+
+2. **Refined and Rational Real-Time Scoring Update**
+   - **Functionality**: This feature enhances the scoring system in Learning Mode by providing real-time variable scores based on the timing accuracy of the user's key presses in relation to the standard timing of the notes.
+   - **Scoring Methodology**: The scoring system evaluates the user's performance by assessing the difference in timing between the user’s input and the standard rhythm of the note. This approach offers a more nuanced and accurate assessment of the user's playing proficiency, encouraging improvement and precision in timing.
+
+3. **Varied Rhythms in Music Playback**
+   - **Functionality**: In both Auto-Play and Learning Modes, this feature introduces variations in the duration of each musical note played.
+   - **User Experience and Learning Enhancement**: Instead of having uniform note durations, this feature allows for a more dynamic and expressive rendition of music. It adds complexity to the learning mode, helping users to become more adept at handling varied rhythms and enhancing their overall musicality.
+
+Each of these bonus features adds significant value to the Electronic Piano project, making it more adaptive, interactive, and beneficial for users seeking a comprehensive and personalized musical learning experience.
+
+---
+
+# System Architecture
 
 ## Main Module
 
@@ -280,6 +336,8 @@ The `AdjustmentModeControl` module facilitates customization of key mappings and
 - Provides a guided interface with visual feedback for setting adjustments.
 
 ---
+
+# 
 
 # Conclusion and Summary
 
