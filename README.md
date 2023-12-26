@@ -31,42 +31,7 @@
 
 ## System Functionality
 
-Based on the provided information about the Electronic Piano project and the associated modules, here is a comprehensive list of functionalities that this project can implement:
 
-1. **Free Mode Functionality (夏辰曦 - Xia Chenxi)**
-   - Basic piano playing capabilities where each key corresponds to a specific note.
-   - Standard features including dynamic volume control and real-time note play.
-   - Adjustment Mode for customizing key-to-note mappings, enabling users to personalize their playing experience.
-   - Initial equipment binding and debugging to ensure hardware and software integration.
-   - Organizing and participating in team meetings for project planning and division of work.
-
-2. **Auto-Play Mode (戚涵睿 - Qi Hanrui)**
-   - Automatic playback of pre-set or user-programmed songs.
-   - Composition tools to allow users to create or modify songs for auto-play.
-   - Integration with the main control module to manage song selection and playback controls.
-   - Involvement in the production of project documentation, detailing the functionality and usage of the Auto-Play mode.
-
-3. **Learning Mode (蔡骐骏 - Cai Qijun)**
-   - Guided playing feature to assist users in learning new songs.
-   - LED indicators and audio cues to guide users through song notes, improving learning efficiency.
-   - Post-production optimization to enhance the learning experience, such as adjusting the timing and responsiveness of guidance systems.
-   - Case binding and final adjustments to ensure the robustness and user-friendliness of the Learning Mode.
-
-4. **General System Features**
-   - Octave control allowing users to shift the pitch of notes up or down.
-   - LED indicators for various functions such as mode selection, key activation, and octave shifts.
-   - Customizable settings for key mappings and other user preferences.
-   - Dynamic speaker output that changes based on the selected mode and user interaction.
-   - A user-friendly interface for easy navigation between different playing modes.
-
-5. **Bonus Features (December Challenge)**
-   - Potential expansion of existing features or addition of new, innovative capabilities.
-   - Advanced customization options for experienced users.
-   - Enhanced audio effects and integration of additional musical instruments or sounds.
-
-This project combines various elements of electronic music synthesis, user interface design, and educational tools, making it a versatile electronic piano system suitable for a wide range of users, from beginners to experienced musicians.
-
----
 
 ## Bonus Features
 
@@ -91,9 +56,9 @@ Each of these bonus features adds significant value to the Electronic Piano proj
 
 # System Architecture
 
-## Main Module
-
 ![Yinjiao Image](yinjiao.jpg "引脚")
+
+## Main Module
 
 ### Overview
 
