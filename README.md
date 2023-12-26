@@ -10,23 +10,34 @@
 
 
 0.
-夏辰曦： ElectronicPiano模块，自由模式基础功能与标准功能，调整模式。前期设备绑定调试，组织小组会议讨论。
 
-日程安排：
-10月初，小组会议讨论，初步分工
-10~11月，自由模式基础功能与标准功能，初次上板测试。
-12月10号~20号，挑战bonus功能。
+---
 
-1.
-2.
-3.
+# Electronic Piano Project Documentation: CosmicKeyboard
 
-4.
-5.
 ![CosmicKeyboard Image](keyboard.png "CosmicKeyboard")
 
-![Yinjiao Image](yinjiao.jpg "引脚")
+## Team Members and Responsibilities
+
+- **夏辰曦 (Xia Chenxi)**: Focus on the ElectronicPiano module, Free Mode basic and standard functionalities, Adjustment Mode. Involved in initial equipment binding and debugging, organizing team meetings for discussion.
+- **戚涵睿 (Qi Hanrui)**: Responsible for the Main Control module, Auto-Play Mode, composition, and documentation production.
+- **蔡骐骏 (Cai Qijun)**: Handles the Learning Mode, later stage optimization, and case binding.
+
+## Project Timeline
+
+- **Early October**: Team meeting to discuss and preliminary division of work.
+- **October to November**: Development of basic and standard functionalities of Free Mode, initial board testing.
+- **December 10th to 20th**: Challenge for the bonus features.
+
+## System Functionality and User Guide
+
+The following sections provide detailed information about the Electronic Piano project's modules, functionalities, and integration into electronic piano systems.
+
+---
+
 # Main Module
+
+![Yinjiao Image](yinjiao.jpg "引脚")
 
 ## Overview
 
