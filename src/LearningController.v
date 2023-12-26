@@ -1,5 +1,6 @@
 module LearningConroller(
     input wire clk,
+    input wire showScore,
     input wire [6:0] key_in,
     input wire reset,
     input wire next_song,
@@ -27,6 +28,7 @@ always @(posedge clk or posedge reset) begin
 end
 LearningPlay learning_play(
     .clk(clk),
+    .showScore(showScore),
     .reset(reset),
     .key_in(key_in),
     .selected_song(song_number),
