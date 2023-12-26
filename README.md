@@ -1,51 +1,25 @@
-# CosmicKeyboard
+应包含 
+0. 团队分工（各成员工作以及贡献百分比）【0.5】，开发计划日程安排和实施情况【1】
+1. 系统功能列表 【1】
+2. 系统使用说明（含系统 的输入、输出端口的说明），可参考“输入输出端口说明图示例” 示意图 【1】
+2. 系统结构说明（系统内部各模块及模块间信号线的关系）【2】
+3. 子模块功能说明： 输入、输出端口说明、子模块功能说明 【1】
+4. bonus 的实现说明（仅对实现bonus的小组有要求，如缺少这部分，bonus总分打7折）
+5. 项目总结（团队合作、开发及测试工作的总结【2】
+6. 假如你们团队负责project出题，请给出基于ego1可实现的project的想法和建议，可以借鉴网上的方案，但需给出reference【1.5】）"
 
-## Overview
 
-CosmicKeyboard is an innovative electronic keyboard project designed to bring a unique musical experience. This project combines traditional electronic keyboard functionalities with advanced features like auto-play, learning mode, and an interactive song selection interface. It's perfect for both beginners and experienced musicians looking to explore music in a new, interactive way.
-![CosmicKeyboard Image](keyboard.png "CosmicKeyboard")
+0.
+夏辰曦： ElectronicPiano模块，自由模式基础功能与标准功能，调整模式。前期设备绑定调试，组织小组会议讨论。
 
-## Features
+日程安排：
+10月初，小组会议讨论，初步分工
+10~11月，自由模式基础功能与标准功能，初次上板测试。
+12月10号~20号，挑战bonus功能。
 
-- **Free Mode**: Play any note at will, just like a standard electronic keyboard.
-- **Auto-Play Mode**: The keyboard automatically plays a selection of pre-loaded songs.
-- **Learning Mode**: Lights guide the user to play specific songs, improving learning and engagement.
-- **Song Selection**: Navigate through a library of songs using a next/previous interface, displayed on a seven-segment display.
-- **Octave Control**: Shift the pitch of notes up or down to suit your musical preference.
+1.
+2.
+3.
 
-## Hardware Requirements
-
-- FPGA Board
-- Clock source
-- Seven-segment display
-- Input buttons for mode selection and song navigation
-- Speaker or audio output
-
-## Modules
-
-- **Main Module**: Coordinates all other modules and manages the mode of operation.
-- **AutoPlay Module**: Handles the automatic playback of songs in the song library.
-- **AutoPlayController Module**: Manages song selection and interfaces with the seven-segment display for song navigation.
-- **ElectronicPiano Module**: Core functionality for playing notes in Free and Learning modes.
-- **Buzzer Module**: Generates sound corresponding to the selected notes and octave settings.
-
-## Installation
-
-1. Clone the repository:
-   ```
-   git clone https://github.com/7Sageer/CosmicKeyboard
-   ```
-2. Compile the Verilog files using your preferred FPGA development environment.
-3. Load the compiled design onto your FPGA board.
-4. Connect the necessary peripherals (display, buttons, speaker).
-
-## Usage
-
-- Power on the CosmicKeyboard.
-- Select your desired mode using the mode selection buttons.
-- For song navigation, use the next/previous buttons.
-- Play music in Free Mode, follow along in Learning Mode, or sit back and listen in Auto-Play Mode.
-
-## Contributing
-
-Contributions to CosmicKeyboard are welcome! If you have suggestions or improvements, please open an issue or submit a pull request.
+4.
+5.
