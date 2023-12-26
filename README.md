@@ -115,3 +115,47 @@ AutoPlayController auto_play (
     // Other connections as per system design
 );
 ```
+
+---
+
+# LearningPlay Module Documentation
+
+## Overview
+
+The `LearningPlay` module is designed for the learning mode of an electronic piano. It facilitates learning songs by guiding the user through song notes, showing corresponding LED indications, and providing feedback on the user's performance.
+
+## Input and Output Ports
+
+### Inputs
+
+- `clk`: Clock signal.
+- `reset`: Reset signal to initialize the module.
+- `key_in`: Keyboard input (7-bit, representing different keys).
+- `octave_keys`: Octave control keys (2-bit, representing octave shifts).
+- `selected_song`: Currently selected song (4-bit, representing song number).
+
+### Outputs
+
+- `learn_show_led`: LED output for learning guidance (7-bit).
+- `speaker`: Speaker output signal.
+- `score2`: Current score display (8-bit).
+- `tub_1` and `tub_2`: Control signals for score display.
+
+## Functional Description
+
+- Manages song playback for learning, with guided LEDs (`learn_show_led`) to indicate the current note to be played.
+- Scores the user's performance based on the accuracy and timing of the played notes.
+- Provides audio feedback through the speaker based on user input and the correctness of notes played.
+- Displays the user's score on a 7-segment display controlled by `tub_1` and `tub_2`.
+
+## Key Features
+
+- **Song Playback Control**: Handles the playback of songs for learning purposes, including note timing and progression.
+- **Scoring System**: Implements a scoring system based on the user's input accuracy and timing.
+- **LED Guidance**: Utilizes LEDs to guide the user through the song, indicating which note to play next.
+- **Dynamic Feedback**: Offers dynamic audio feedback to help the user learn and correct mistakes.
+
+## Performance and Resource Usage
+
+- Optimized for low resource usage, ensuring smooth operation on hardware with limited capabilities.
+- Efficiently manages clock cycles for real-time performance feedback.
