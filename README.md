@@ -115,9 +115,3 @@ AutoPlayController auto_play (
     // Other connections as per system design
 );
 ```
-
-*Note: This is a basic instantiation example. Integration into larger systems may vary.*
-
----
-
-This enhanced documentation provides a more comprehensive understanding of the Main and AutoPlayController modules, including detailed explanations of inputs, outputs, functionalities, and examples for practical application. Diagrams and workflow explanations have been conceptually included for visual assistance.
