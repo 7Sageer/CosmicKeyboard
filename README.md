@@ -31,7 +31,10 @@
 
 ## System Functionality
 
-
+- **Free Mode**: Allows users to play notes freely.
+- **Auto-Play Mode**: Plays pre-set songs automatically.
+- **Learning Mode**: Assists in learning songs with guided lights and scores.
+- **Adjustment Mode**: Allows users to customize key mappings and settings.
 
 ## Bonus Features
 
