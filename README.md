@@ -106,17 +106,6 @@ The AutoPlayController module automates the playback of pre-set songs, controlli
 - Resource-efficient design ensures minimal clock cycles per operation.
 - LED indicators provide low-overhead status updates.
 
-## Application Example
-
-```verilog
-// Instantiate the AutoPlayController in a larger system
-AutoPlayController auto_play (
-    .clk(clk),
-    .reset(reset),
-    // Other connections as per system design
-);
-```
-
 ---
 
 # LearningPlay Module
@@ -160,9 +149,6 @@ The `LearningPlay` module is designed for the learning mode of an electronic pia
 
 - Optimized for low resource usage, ensuring smooth operation on hardware with limited capabilities.
 - Efficiently manages clock cycles for real-time performance feedback.
-
-
-Absolutely! I'll create English documentation for the `ElectronicPiano` module, particularly focusing on the Free Mode, as well as provide documentation for the remaining modules. The documentation will be formatted in Markdown.
 
 ---
 
