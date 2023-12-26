@@ -38,8 +38,6 @@
 
 ## Bonus Features
 
-Certainly! Here are the detailed explanations for the bonus features of the Electronic Piano project:
-
 1. **Customizable Key Mapping Feature**
    - **Functionality**: This feature allows users to adjust the mapping of musical notes to keys based on their usage habits. 
    - **Implementation in Adjustment Mode**: When the device enters adjustment mode, it sequentially plays musical notes (like do, re, mi). After each note is played, the user selects a key corresponding to the played note and presses the confirm button. The device then plays the next note, waiting for the user's next selection and confirmation.
