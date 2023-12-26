@@ -1,6 +1,7 @@
 module LearningPlay(
     input wire clk,
     input wire reset,
+    input wire showScore,
     input wire [6:0] key_in,
     input wire [1:0] octave_keys,
     input wire [3:0] selected_song,
@@ -32,7 +33,7 @@ wire octave_up, octave_down;
 wire piano_speaker;
 
 reg [15:0] total_score = 0;
-
+    reg [15:0] hisScore;
 wire [3:0] in_note_out;
 
 LearnInput learn_input(
@@ -208,6 +209,7 @@ reg isRight;
                             batch_counter <= 0;
                             counter <= 0;
                             index <= index + 1;
+                            if(index == 28) hisScore <= total_score;
                             isOut <= 1;
                             //speaker <= 0;
                         end
@@ -219,8 +221,8 @@ assign tub_1 = (regN[N-1:N-2] == 2'b00)?1:
                (regN[N-1:N-2] == 2'b01)?1:0;
 assign tub_2 = (regN[N-1:N-2] == 2'b00)?0:
                (regN[N-1:N-2] == 2'b01)?0:1;   
-assign digit =  (regN[N-1:N-2] == 2'b00)?total_score / 10:
-                (regN[N-1:N-2] == 2'b01)?total_score / 10:total_score % 10;   
+    assign digit =  (regN[N-1:N-2] == 2'b00)?(showScore? hisScore:total_score) / 10:
+                (regN[N-1:N-2] == 2'b01)?(showScore? hisScore:total_score) / 10:(showScore? hisScore:total_score) % 10;   
 assign score2 = (digit == 4'b0000)? 8'b11111100: // 0
         (digit == 4'b0001)?8'b01100000: // 1
        (digit == 4'b0010)?8'b11011010: // 2
