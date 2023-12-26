@@ -1,5 +1,6 @@
-应包含 
+应包含
 0. 团队分工（各成员工作以及贡献百分比）【0.5】，开发计划日程安排和实施情况【1】
+
 1. 系统功能列表 【1】
 2. 系统使用说明（含系统 的输入、输出端口的说明），可参考“输入输出端口说明图示例” 示意图 【1】
 2. 系统结构说明（系统内部各模块及模块间信号线的关系）【2】
@@ -7,7 +8,6 @@
 4. bonus 的实现说明（仅对实现bonus的小组有要求，如缺少这部分，bonus总分打7折）
 5. 项目总结（团队合作、开发及测试工作的总结【2】
 6. 假如你们团队负责project出题，请给出基于ego1可实现的project的想法和建议，可以借鉴网上的方案，但需给出reference【1.5】）"
-
 
 0.
 
@@ -35,15 +35,13 @@ The following sections provide detailed information about the Electronic Piano p
 
 ---
 
-# Main Module
+## Main Module
 
 ![Yinjiao Image](yinjiao.jpg "引脚")
 
-## Overview
+### Overview
 
 The Main module serves as the central control unit for an electronic piano, managing different playing modes (Free Mode, Auto-Play Mode, and Learning Mode) and handling user inputs and outputs.
-
-## Input and Output Ports
 
 ### Inputs
 
@@ -68,13 +66,13 @@ The Main module serves as the central control unit for an electronic piano, mana
 - `tub_sel_score2`: Control signal for score display part 2.
 - `score2`: Score display (8-bit).
 
-## Operating Modes
+### Operating Modes
 
 - **Free Mode** (`FREE_MODE`): Allows free playing of notes.
 - **Auto-Play Mode** (`AUTO_PLAY_MODE`): Plays pre-set songs automatically.
 - **Learning Mode** (`LEARNING_MODE`): Assists in learning songs with guided lights and scores.
 
-## Error Handling and Boundary Conditions
+### Error Handling and Boundary Conditions
 
 - In case of invalid `mode_select` input, the system defaults to Free Mode.
 - LED indicators provide visual feedback in case of errors or mode changes.
@@ -82,13 +80,11 @@ The Main module serves as the central control unit for an electronic piano, mana
 
 ---
 
-# AutoPlayController Module
+## AutoPlayController Module
 
-## Overview
+### Overview
 
 The AutoPlayController module automates the playback of pre-set songs, controlling song selection, playback, and related audio-visual outputs.
-
-## Input and Output Ports
 
 ### Inputs
 
@@ -106,26 +102,24 @@ The AutoPlayController module automates the playback of pre-set songs, controlli
 - `tub_sel`: Tube selection signal for display.
 - `led`: LED output (7-bit).
 
-## Functionality
+### Functionality
 
 - Manages song selection using `next_song` and `prev_song` buttons.
 - Generates audio signals based on the selected song.
 - Uses `SevenSegmentDecoder` to display the current song number.
 
-## Performance and Resource Usage
+### Performance and Resource Usage
 
 - Resource-efficient design ensures minimal clock cycles per operation.
 - LED indicators provide low-overhead status updates.
 
 ---
 
-# LearningPlay Module
+## LearningPlay Module
 
-## Overview
+### Overview
 
 The `LearningPlay` module is designed for the learning mode of an electronic piano. It facilitates learning songs by guiding the user through song notes, showing corresponding LED indications, and providing feedback on the user's performance.
-
-## Input and Output Ports
 
 ### Inputs
 
@@ -142,34 +136,32 @@ The `LearningPlay` module is designed for the learning mode of an electronic pia
 - `score2`: Current score display (8-bit).
 - `tub_1` and `tub_2`: Control signals for score display.
 
-## Functional Description
+### Functional Description
 
 - Manages song playback for learning, with guided LEDs (`learn_show_led`) to indicate the current note to be played.
 - Scores the user's performance based on the accuracy and timing of the played notes.
 - Provides audio feedback through the speaker based on user input and the correctness of notes played.
 - Displays the user's score on a 7-segment display controlled by `tub_1` and `tub_2`.
 
-## Key Features
+### Key Features
 
 - **Song Playback Control**: Handles the playback of songs for learning purposes, including note timing and progression.
 - **Scoring System**: Implements a scoring system based on the user's input accuracy and timing.
 - **LED Guidance**: Utilizes LEDs to guide the user through the song, indicating which note to play next.
 - **Dynamic Feedback**: Offers dynamic audio feedback to help the user learn and correct mistakes.
 
-## Performance and Resource Usage
+### Performance and Resource Usage
 
 - Optimized for low resource usage, ensuring smooth operation on hardware with limited capabilities.
 - Efficiently manages clock cycles for real-time performance feedback.
 
 ---
 
-# ElectronicPiano Module Documentation
+## ElectronicPiano Module
 
-## Overview
+### Overview
 
 The `ElectronicPiano` module serves as the primary control unit for an electronic piano system. It integrates various sub-modules to handle different functionalities, including playing notes, octave control, and adjustment mode.
-
-## Input and Output Ports
 
 ### Inputs
 
@@ -189,11 +181,11 @@ The `ElectronicPiano` module serves as the primary control unit for an electroni
 - `loud`: Volume control signal (binary signal).
 - `light`: Light output for visual feedback (5-bit).
 
-## Free Mode Operation
+### Free Mode Operation
 
 In Free Mode, the module allows users to play notes freely. It interprets the key inputs (`key_in`) and plays the corresponding notes through the speaker. The octave control alters the pitch of the notes played.
 
-## Sub-Modules
+### Sub-Modules
 
 ### KeyboardInput
 
@@ -211,19 +203,18 @@ Generates audio signals corresponding to the musical notes.
 
 Controls the octave shifts for playing higher or lower pitches.
 
-## Performance and Resource Usage
+### Performance and Resource Usage
 
 - Designed for efficiency, ensuring minimal latency in note playback.
 - LED indicators provide real-time feedback with minimal resource consumption.
+
 ---
 
-# KeyboardInput Module Documentation
+## KeyboardInput Module
 
-## Overview
+### Overview
 
 The `KeyboardInput` module maps physical keyboard inputs to corresponding musical notes. It supports standard and custom mappings for note playback.
-
-## Input and Output Ports
 
 ### Inputs
 
@@ -236,18 +227,16 @@ The `KeyboardInput` module maps physical keyboard inputs to corresponding musica
 
 - `note_out`: Note output (4-bit).
 
-## Functionality
+### Functionality
 
 - Translates key presses into musical notes based on the current key mapping.
 - Supports an adjustment mode for customizing key-to-note mappings.
 
-# OctaveControl Module Documentation
+## OctaveControl Module
 
-## Overview
+### Overview
 
 `OctaveControl` manages octave shifting in the electronic piano, allowing the user to play notes in different octaves.
-
-## Input and Output Ports
 
 ### Inputs
 
@@ -258,30 +247,18 @@ The `KeyboardInput` module maps physical keyboard inputs to corresponding musica
 - `octave_up`: Octave up control signal.
 - `octave_down`: Octave down control signal.
 
-## Functionality
+### Functionality
 
 - Adjusts the pitch of the notes played by shifting the octave up or down.
 - Responsive to real-time user inputs for octave adjustments.
 
-## Application Example
-
-```verilog
-// Instantiate the OctaveControl module
-OctaveControl octave_control (
-    .octave_keys(octave_keys),
-    // Other connections as needed
-);
-```
-
 ---
 
-# AdjustmentModeControl Module Documentation
+## AdjustmentModeControl Module Documentation
 
-## Overview
+### Overview
 
 The `AdjustmentModeControl` module facilitates customization of key mappings and settings in the electronic piano.
-
-## Input and Output Ports
 
 ### Inputs
 
@@ -297,7 +274,19 @@ The `AdjustmentModeControl` module facilitates customization of key mappings and
 - `key_mapping_0` to `key_mapping_6`: Customizable key mappings (7-bit each).
 - `light`: Light output for visual feedback (5-bit).
 
-## Functionality
+### Functionality
 
 - Allows users to customize key-to-note mappings.
 - Provides a guided interface with visual feedback for setting adjustments.
+
+---
+
+# Conclusion and Summary
+
+In this documentation, we've provided an in-depth look at the various components and functionalities of the Electronic Piano project. Each module, from the ElectronicPiano to the KeyboardInput, OctaveControl, and AdjustmentModeControl, has been meticulously designed to cater to different aspects of the electronic piano's operation. These include the versatile Free Mode, the automated play in Auto-Play Mode, and the interactive learning experience in Learning Mode.
+
+The project was a collaborative effort, with team members Xia Chenxi, Qi Hanrui, and Cai Qijun contributing to different areas, ranging from basic functionality and module development to documentation and optimization. The project timeline highlighted our phased approach, from initial planning and division of labor to the testing and implementation of bonus features.
+
+Through this documentation, we aimed to provide clear, comprehensive guidance on the electronic piano's system architecture and functionalities. It serves as both a technical manual for those looking to understand or replicate the project and as a record of the team's methodical approach to the development of this innovative musical instrument.
+
+The Electronic Piano project stands as a testament to the intersection of technology and creativity, offering a unique platform for musical expression and learning.
